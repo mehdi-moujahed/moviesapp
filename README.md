@@ -24,5 +24,9 @@ npm start
 npm run test
 ```
 
+## Demo
+See live demo :
+[link](https://movies-app-tvmaze.herokuapp.com/)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
