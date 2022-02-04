@@ -24,13 +24,17 @@ const useStyles = makeStyles(() => ({
   },
   infos: {
     padding: '5px 10px',
-    marginRight: 8
+    marginRight: 8,
+     display: 'flex',
+    alignItems: 'center',
+    justifyContent:'center'
   },
   rating: {
     padding: '5px 10px',
     marginRight: 8,
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent:'center'
   },
   ratingIcon: {
     paddingLeft: 5,
@@ -70,23 +74,29 @@ function TVShowDetails(props: TVShowDetailsProps) {
           {props?.name}
         </Typography>
       </Grid>
-      <Grid item xs={12} className={classes?.description}>
+      <Grid item xs={12} sm={6} xl={3} className={classes?.description}>
         {props?.genres?.map((genre: any, index: number) => (
           <Paper key={index} className={classes.infos}>
             {genre}
           </Paper>
         ))}
+        </Grid>
+        <Grid item xs={6} sm={6} xl={3}>
         <Paper className={classes?.infos}>{props?.year}</Paper>
-        <Paper className={classes?.rating}>
+        </Grid>
+        <Grid item xs={6} sm={6}  xl={3}>
+           <Paper className={classes?.rating}>
           {props?.vote_average}{' '}
           <GradeIcon fontSize="small" className={classes?.ratingIcon} />
         </Paper>
-        <Paper className={classes?.infos}>
+        </Grid>
+        <Grid item xs={6} sm={6} xl={3}>
+         <Paper className={classes?.infos}>
           {`${props?.number_of_seasons} season${
             props?.number_of_seasons > 1 ? 's' : ''
           }`}
         </Paper>
-      </Grid>
+        </Grid>
       <Grid item xs={12}>
         <Typography className={classes?.summary}>
           {props?.summary !== null

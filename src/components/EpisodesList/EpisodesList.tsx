@@ -50,7 +50,9 @@ const useStyles = makeStyles((theme) => ({
   },
   spinnerBox: {
     minHeight: 140,
-    width: '100%'
+    width: '100%',
+    justifyContent:'center',
+    alignItems:'center'
   },
   selectorMenu: {
     '& .MuiPaper-root': {
@@ -144,7 +146,7 @@ function Episodes(props: EpisodesProps) {
                 onClick={() => history.push(`episodeDetails/${episode?.id}`)}
               >
                 <Grid container spacing={1} alignItems="center">
-                  <Grid item xs={1}>
+                  <Grid item xs={6} sm={1}>
                     <Typography
                       color="textPrimary"
                       variant="h4"
@@ -153,16 +155,13 @@ function Episodes(props: EpisodesProps) {
                       {episode?.number}
                     </Typography>
                   </Grid>
-                  <Grid item xs={11}>
+                  <Grid item xs={8} sm={11}>
                     <Grid container spacing={4} alignItems="center">
-                      <Grid item xs={3}>
+                      <Grid item xs={12} sm={6} md={3} >
                         <Box
-                          display="flex"
-                          justifyContent="center"
-                          alignItems="center"
                           className={classes?.spinnerBox}
                           style={{
-                            display: loadingImg ? 'block' : 'none'
+                          display: loadingImg ? 'flex' : 'none'
                           }}
                         >
                           <CircularProgress
@@ -183,7 +182,7 @@ function Episodes(props: EpisodesProps) {
                           }}
                         />
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid item xs={12} sm={6} md={9}>
                         <Typography variant="h5">{episode?.name}</Typography>
 
                         <Typography variant="body2">
